@@ -2,6 +2,12 @@
 
 set -e
 
+# Check if the script is running on macOS
+if [[ "$(uname)" != "Darwin" ]]; then
+  echo "❌ This script is only intended for macOS. Exiting."
+  exit 1
+fi
+
 PF_CONF="/etc/pf.conf"
 ANCHOR_NAME="com.redirect443to8443"
 ANCHOR_FILE="/etc/pf.anchors/$ANCHOR_NAME"
